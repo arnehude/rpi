@@ -2,13 +2,45 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-import RPi.GPIO
+############# IMPORTS ################
+
+#GPIO Port Libaries importieren
+import RPi.GPIO as GPIO
+import time
+
+############ RPi-SETTINGS ###############
+#Boardmodus setzen
+GPIO.setmode(GPIO.BCM)
+
+#GPIOs Definieren
+
+#Input
+
+#Output
+GPIO.setup(3,GPIO.OUT)
+
+####### Standards #######
+
+GPIO.output(3,GPIO.LOW)
+
+############ PROGRAMM ###################
+
 
 try:
     i = 0
-    if i == 0:
-        print("HELLO WORLD")
-        i = 1
+    while i < 5:
+        print('GPIO HIGH')
+        GPIO.output(3,GPIO.HIGH)
+        sleep(.5)
+        print('GPIO LOW')
+        GPIO.output(3,GPIO.LOW)
+        i = i + 1
+        
+
+######### ERROR UND CLEANUP #############
+
 except:
     print('ERROR: HELLO WORLD')
     
+finally:
+    GPIO.cleanup();

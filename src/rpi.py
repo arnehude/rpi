@@ -25,14 +25,17 @@ GPIO.output(22, GPIO.LOW)
 try:
     i = 0
     while i<5:
-        print('GPIO HIGH')
-        GPIO.output(22, GPIO.HIGH)
-        time.sleep(.5)
-        print('GPIO LOW')
-        GPIO.output(22, GPIO.LOW)
+        x = 0
+        while x < 20:
+            print('GPIO HIGH')
+            GPIO.output(22, GPIO.HIGH)
+            time.sleep(.05)
+            print('GPIO LOW')
+            GPIO.output(22, GPIO.LOW)
+            x = x + 1
         i = i + 1
         print('Durchgang: ', i)
-        time.sleep(.5)
+        time.sleep(1)
 
 ######### ERROR UND CLEANUP #############
 

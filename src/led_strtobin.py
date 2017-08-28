@@ -38,30 +38,27 @@ letters = {'A': '.-',     'B': '-...',   'C': '-.-.',
         '9': '----.' 
         }
 
-def morse():
-    print('Text der gemorst wird:')
-    nachricht = input()
-    
+def morse_to_binary(nachricht):
+    text = ''
     for char in nachricht:
-        text = text + letters[char.upper()]
-    
-    return text
-    
-def morse_to_binary(mstring):
+        text = text + letters[char.upper()] 
     st = 0
-    while st < len(mstring):    
-        if mstring[st] == '.':
+    print(text)
+    while st < len(text):    
+        if text[st] == '.':
             GPIO.output(22, GPIO.HIGH)
             time.sleep(.02)
             GPIO.output(22, GPIO.LOW)
-        elif mstring[st] == '-':
+        elif text[st] == '-':
             GPIO.output(22, GPIO.HIGH)
             time.sleep(.04)
             GPIO.output(22, GPIO.LOW)
         st = st + 1;
             
 try:
-    text = morse();
+    print('Text der gemorst wird:')
+    nachricht = input()
+    text = morse(nachricht);
     morse_to_binary(text);
 
 ######### ERROR UND CLEANUP #############

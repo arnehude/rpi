@@ -6,7 +6,7 @@
 
 #GPIO Port Libaries importieren
 import RPi.GPIO as GPIO
-import time
+import time as time
 
 ############ RPi-SETTINGS ###############
 #Boardmodus setzen
@@ -27,12 +27,12 @@ try:
     while i<5:
         print('GPIO HIGH')
         GPIO.output(22, GPIO.HIGH)
-        sleep(.5)
+        time.sleep(.5)
         print('GPIO LOW')
         GPIO.output(22, GPIO.LOW)
         i = i + 1
         print('Durchgang: ', i)
-        
+        time.sleep(.5)
 
 ######### ERROR UND CLEANUP #############
 

@@ -6,7 +6,7 @@
 
 #GPIO Port Libaries importieren
 import RPi.GPIO as GPIO
-import time as time
+import time
 
 ############ RPi-SETTINGS ###############
 #Boardmodus setzen

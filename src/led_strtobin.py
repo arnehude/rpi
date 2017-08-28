@@ -61,7 +61,8 @@ def morse_to_binary(mstring):
         st = st + 1;
             
 try:
-    morse()
+    text = morse();
+    morse_to_binary(text);
 
 ######### ERROR UND CLEANUP #############
 

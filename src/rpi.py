@@ -22,45 +22,19 @@ GPIO.output(22, GPIO.LOW)
 
 ############ PROGRAMM ###################
 
-letters = {'A': '.-',     'B': '-...',   'C': '-.-.', 
-        'D': '-..',    'E': '.',      'F': '..-.',
-        'G': '--.',    'H': '....',   'I': '..',
-        'J': '.---',   'K': '-.-',    'L': '.-..',
-        'M': '--',     'N': '-.',     'O': '---',
-        'P': '.--.',   'Q': '--.-',   'R': '.-.',
-     	'S': '...',    'T': '-',      'U': '..-',
-        'V': '...-',   'W': '.--',    'X': '-..-',
-        'Y': '-.--',   'Z': '--..',
-        
-        '0': '-----',  '1': '.----',  '2': '..---',
-        '3': '...--',  '4': '....-',  '5': '.....',
-        '6': '-....',  '7': '--...',  '8': '---..',
-        '9': '----.' 
-        }
-
-def morse():
-    print('Text der gemorst wird:')
-    nachricht = input()
-    
-    for char in nachricht:
-        text = text + letters[char.upper()]
-    
-def morse_to_binary(mstring):
-    st = 0
-    while st < len(mstring):
-    
-        if mstring[st] == '.':
-            GPIO.output(22, GPIO.HIGH)
-            time.sleep(.02)
-            GPIO.output(22, GPIO.LOW)
-        elif mstring[st] == '-':
-            GPIO.output(22, GPIO.HIGH)
-            time.sleep(.04)
-            GPIO.output(22, GPIO.LOW)
-        st = st + 1
-            
 try:
-    morse()
+    i = 0
+    while i<5:
+        x = 0
+        while x < 50:
+            GPIO.output(22, GPIO.HIGH)
+            time.sleep(.05)
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(.05)
+            x = x + 1
+        i = i + 1
+        print('Durchgang: ', i)
+        time.sleep(1)
 
 ######### ERROR UND CLEANUP #############
 

@@ -22,19 +22,32 @@ GPIO.output(22, GPIO.LOW)
 
 ############ PROGRAMM ###################
 
+letters = {'A': '.-',     'B': '-...',   'C': '-.-.', 
+        'D': '-..',    'E': '.',      'F': '..-.',
+        'G': '--.',    'H': '....',   'I': '..',
+        'J': '.---',   'K': '-.-',    'L': '.-..',
+        'M': '--',     'N': '-.',     'O': '---',
+        'P': '.--.',   'Q': '--.-',   'R': '.-.',
+     	'S': '...',    'T': '-',      'U': '..-',
+        'V': '...-',   'W': '.--',    'X': '-..-',
+        'Y': '-.--',   'Z': '--..',
+        
+        '0': '-----',  '1': '.----',  '2': '..---',
+        '3': '...--',  '4': '....-',  '5': '.....',
+        '6': '-....',  '7': '--...',  '8': '---..',
+        '9': '----.' 
+        }
+
+def morse():
+    print('Text der gemorst wird:')
+    nachricht = input()
+    
+    for char in nachricht:
+        letters[char.upper()]
+    
+
 try:
-    i = 0
-    while i<5:
-        x = 0
-        while x < 50:
-            GPIO.output(22, GPIO.HIGH)
-            time.sleep(.05)
-            GPIO.output(22, GPIO.LOW)
-            time.sleep(.05)
-            x = x + 1
-        i = i + 1
-        print('Durchgang: ', i)
-        time.sleep(1)
+    morse()
 
 ######### ERROR UND CLEANUP #############
 

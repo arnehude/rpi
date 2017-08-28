@@ -13,9 +13,6 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 #GPIOs Definieren
-
-#Input
-
 #Output
 GPIO.setup(3, GPIO.OUT)
 
@@ -25,16 +22,16 @@ GPIO.output(3, GPIO.LOW)
 
 ############ PROGRAMM ###################
 
-
 try:
     i = 0
-    while i < 5:
+    while i<5:
         print('GPIO HIGH')
         GPIO.output(3, GPIO.HIGH)
         sleep(.5)
         print('GPIO LOW')
         GPIO.output(3, GPIO.LOW)
         i = i + 1
+        print('Durchgang: ', i)
         
 
 ######### ERROR UND CLEANUP #############

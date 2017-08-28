@@ -28,7 +28,7 @@ try:
         x = 0
         while x < 50:
             GPIO.output(22, GPIO.HIGH)
-            time.sleep(.02)
+            time.sleep(.1)
             GPIO.output(22, GPIO.LOW)
             x = x + 1
         i = i + 1

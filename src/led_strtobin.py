@@ -58,8 +58,7 @@ def morse_to_binary(nachricht):
 try:
     print('Text der gemorst wird:')
     nachricht = input()
-    text = morse(nachricht);
-    morse_to_binary(text);
+    morse_to_binary(nachricht);
 
 ######### ERROR UND CLEANUP #############
 

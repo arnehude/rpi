@@ -43,9 +43,22 @@ def morse():
     nachricht = input()
     
     for char in nachricht:
-        letters[char.upper()]
+        text = text + letters[char.upper()]
     
-
+def morse_to_binary(mstring):
+    st = 0
+    while st < len(mstring):
+    
+        if mstring[st] == '.':
+            GPIO.output(22, GPIO.HIGH)
+            time.sleep(.02)
+            GPIO.output(22, GPIO.LOW)
+        elif mstring[st] == '-':
+            GPIO.output(22, GPIO.HIGH)
+            time.sleep(.04)
+            GPIO.output(22, GPIO.LOW)
+        st = st + 1
+            
 try:
     morse()
 

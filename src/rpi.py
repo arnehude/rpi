@@ -26,10 +26,11 @@ try:
     i = 0
     while i<5:
         x = 0
-        while x < 50:
+        while x < 10:
             GPIO.output(22, GPIO.HIGH)
             time.sleep(.2)
             GPIO.output(22, GPIO.LOW)
+            time.sleep(.2)
             x = x + 1
         i = i + 1
         print('Durchgang: ', i)

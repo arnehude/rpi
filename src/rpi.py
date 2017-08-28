@@ -14,11 +14,11 @@ GPIO.setmode(GPIO.BCM)
 
 #GPIOs Definieren
 #Output
-GPIO.setup(3, GPIO.OUT)
+GPIO.setup(22, GPIO.OUT)
 
 ####### Standards #######
 
-GPIO.output(3, GPIO.LOW)
+GPIO.output(22, GPIO.LOW)
 
 ############ PROGRAMM ###################
 
@@ -26,10 +26,10 @@ try:
     i = 0
     while i<5:
         print('GPIO HIGH')
-        GPIO.output(3, GPIO.HIGH)
+        GPIO.output(22, GPIO.HIGH)
         sleep(.5)
         print('GPIO LOW')
-        GPIO.output(3, GPIO.LOW)
+        GPIO.output(22, GPIO.LOW)
         i = i + 1
         print('Durchgang: ', i)
         

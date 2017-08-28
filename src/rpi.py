@@ -26,11 +26,9 @@ try:
     i = 0
     while i<5:
         x = 0
-        while x < 20:
-            print('GPIO HIGH')
+        while x < 50:
             GPIO.output(22, GPIO.HIGH)
-            time.sleep(.05)
-            print('GPIO LOW')
+            time.sleep(.02)
             GPIO.output(22, GPIO.LOW)
             x = x + 1
         i = i + 1

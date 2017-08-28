@@ -30,7 +30,7 @@ letters = {'A': '.-',     'B': '-...',   'C': '-.-.',
         'P': '.--.',   'Q': '--.-',   'R': '.-.',
      	'S': '...',    'T': '-',      'U': '..-',
         'V': '...-',   'W': '.--',    'X': '-..-',
-        'Y': '-.--',   'Z': '--..', ' ': '-...-',
+        'Y': '-.--',   'Z': '--..',   ' ': '-...-',
         
         '0': '-----',  '1': '.----',  '2': '..---',
         '3': '...--',  '4': '....-',  '5': '.....',
@@ -43,9 +43,9 @@ def morse_to_binary(nachricht):
     for char in nachricht:
         text = text + letters[char.upper()] 
     st = 0
-    print(text)
-    time.sleep(1)
-    while st < len(text):        
+    print(text)    
+    while st < len(text):
+        time.sleep(.4)       
         if text[st] == '.':
             GPIO.output(22, GPIO.LOW)
             time.sleep(.1)
@@ -59,9 +59,7 @@ def morse_to_binary(nachricht):
             time.sleep(.2)
             GPIO.output(22, GPIO.LOW)
         st = st + 1;
-    time.sleep(1)
-
-            
+    time.sleep(1)            
 try:
     print('Text der gemorst wird:')
     nachricht = input()

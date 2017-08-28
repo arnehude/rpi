@@ -45,14 +45,19 @@ def morse_to_binary(nachricht):
     st = 0
     print(text)
     time.sleep(1)
-    while st < len(text):
-        GPIO.output(22, GPIO.LOW)
+    while st < len(text):        
         if text[st] == '.':
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(.2)
             GPIO.output(22, GPIO.HIGH)
             time.sleep(.2)
+            GPIO.output(22, GPIO.LOW)
         elif text[st] == '-':
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(.2)
             GPIO.output(22, GPIO.HIGH)
             time.sleep(.4)
+            GPIO.output(22, GPIO.LOW)
         st = st + 1;
     time.sleep(1)
 

@@ -28,7 +28,7 @@ try:
         x = 0
         while x < 50:
             GPIO.output(22, GPIO.HIGH)
-            time.sleep(.1)
+            time.sleep(.2)
             GPIO.output(22, GPIO.LOW)
             x = x + 1
         i = i + 1
@@ -38,7 +38,7 @@ try:
 ######### ERROR UND CLEANUP #############
 
 except:
-    print('ERROR: HELLO WORLD')
+    print('ABBRUCH')
     
 finally:
     GPIO.cleanup();

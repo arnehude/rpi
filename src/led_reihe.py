@@ -31,23 +31,22 @@ GPIO.output(25, GPIO.LOW)
 try:
     i = 0
     while i<5:
+        print ('1')
         GPIO.output(22, GPIO.HIGH)
-        time.sleep(1)
+        time.sleep(0.2)
         GPIO.output(22, GPIO.LOW)
-
+        print ('2')
         GPIO.output(23, GPIO.HIGH)
-        time.sleep(1)
+        time.sleep(0.2)
         GPIO.output(23, GPIO.LOW)
-        
+        print ('3')
         GPIO.output(24, GPIO.HIGH)
-        time.sleep(1)
+        time.sleep(0.2)
         GPIO.output(24, GPIO.LOW)
-        
+        print ('4')
         GPIO.output(25, GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(25, GPIO.LOW)
-        time.sleep(2)
-        
+        time.sleep(0.2)
+        GPIO.output(25, GPIO.LOW)        
         i = i + 1
         time.sleep(1)
 

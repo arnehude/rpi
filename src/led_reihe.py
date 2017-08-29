@@ -53,17 +53,17 @@ GPIO.output(out6, GPIO.LOW)
 GPIO.output(out7, GPIO.LOW)
 
 ############ PROGRAMM ###################
-class busy(threading.Thread,prg_ok):
+class busy(threading.Thread):
     
     def __init__(self, thread_number):
         threading.Thread.__init__(self)
         self.thread_number = thread_number
-    def run(self,prg_ok):
-	if prg_ok == False:
+    def run(self):
+	if GPIO.input(in2) == 0:
             GPIO.output(out6, GPIO.HIGH)
             time.sleep(0.02)
             GPIO.output(out6, GPIO.LOW)
-        elif prg_ok == True:
+        elif GPIO.input(in2) == 1:
             GPIO.output(out6, GPIO.LOW)
     
  try:

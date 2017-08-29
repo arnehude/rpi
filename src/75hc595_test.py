@@ -55,7 +55,7 @@ def hc595_out():
 	GPIO.output(RCLK, GPIO.LOW)
 
 def loop():
-	WhichLeds = LED1	# Change Mode, modes from LED0 to LED3
+	WhichLeds = LED2	# Change Mode, modes from LED0 to LED3
 	sleeptime = 0.01		# Change speed, lower value, faster speed
 	while True:
 		for i in range(0, len(WhichLeds)):

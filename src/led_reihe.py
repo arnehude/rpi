@@ -12,43 +12,66 @@ import time
 #Boardmodus setzen
 GPIO.setmode(GPIO.BCM)
 
+
+in1 = 2
+in2 = 3
+in3 = 4
+
+out1 = 22
+out2 = 23
+out3 = 24
+out4 = 25
+
 #GPIOs Definieren
+GPIO.setup(in1, GPIO.IN)
+GPIO.setup(in2, GPIO.IN)
+GPIO.setup(in3, GPIO.IN)
+
 #Output
-GPIO.setup(22, GPIO.OUT)
-GPIO.setup(23, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
-GPIO.setup(25, GPIO.OUT)
+GPIO.setup(out1, GPIO.OUT)
+GPIO.setup(out2, GPIO.OUT)
+GPIO.setup(out3, GPIO.OUT)
+GPIO.setup(out4, GPIO.OUT)
 
 ####### Standards #######
 
-GPIO.output(22, GPIO.LOW)
-GPIO.output(23, GPIO.LOW)
-GPIO.output(24, GPIO.LOW)
-GPIO.output(25, GPIO.LOW)
+GPIO.output(out1, GPIO.LOW)
+GPIO.output(out2, GPIO.LOW)
+GPIO.output(out3, GPIO.LOW)
+GPIO.output(out4, GPIO.LOW)
 
 ############ PROGRAMM ###################
 
 try:
-    i = 0
-    while i<100:
-        print ('1')
-        GPIO.output(22, GPIO.HIGH)
-        time.sleep(0.1)
-        GPIO.output(22, GPIO.LOW)
-        print ('2')
-        GPIO.output(23, GPIO.HIGH)
-        time.sleep(0.1)
-        GPIO.output(23, GPIO.LOW)
-        print ('3')
-        GPIO.output(24, GPIO.HIGH)
-        time.sleep(0.1)
-        GPIO.output(24, GPIO.LOW)
-        print ('4')
-        GPIO.output(25, GPIO.HIGH)
-        time.sleep(0.1)
-        GPIO.output(25, GPIO.LOW)        
-        i = i + 1
-        time.sleep(.5)
+    while True:
+        if (GPIO.input(in1)):
+            print("Button 1 Pressed")
+        if (GPIO.input(in2)):
+            print("Button 2 Pressed")
+        if (GPIO.input(in3)):
+            print("Button 3 Pressed")
+            
+    
+#    i = 0
+#    while i<100:
+#        print ('1')
+#        GPIO.output(22, GPIO.HIGH)
+#        time.sleep(0.1)
+#        GPIO.output(22, GPIO.LOW)
+#        print ('2')
+#        GPIO.output(23, GPIO.HIGH)
+#        time.sleep(0.1)
+#        GPIO.output(23, GPIO.LOW)
+#        print ('3')
+#        GPIO.output(24, GPIO.HIGH)
+#        time.sleep(0.1)
+#        GPIO.output(24, GPIO.LOW)
+#        print ('4')
+#        GPIO.output(25, GPIO.HIGH)
+#        time.sleep(0.1)
+#        GPIO.output(25, GPIO.LOW)        
+#        i = i + 1
+#        time.sleep(.5)
 
 ######### ERROR UND CLEANUP #############
 

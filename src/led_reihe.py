@@ -13,9 +13,9 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 
-in1 = 2
-in2 = 3
-in3 = 4
+in1 = 17
+in2 = 27
+in3 = 25
 
 out1 = 22
 out2 = 23
@@ -23,9 +23,9 @@ out3 = 24
 out4 = 25
 
 #GPIOs Definieren
-GPIO.setup(in1, GPIO.IN)
-GPIO.setup(in2, GPIO.IN)
-GPIO.setup(in3, GPIO.IN)
+GPIO.setup(in1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(in2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(in3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 #Output
 GPIO.setup(out1, GPIO.OUT)

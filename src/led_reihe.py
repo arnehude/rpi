@@ -7,6 +7,7 @@
 #GPIO Port Libaries importieren
 import RPi.GPIO as GPIO
 import time
+import threading
 
 ############ RPi-SETTINGS ###############
 #Boardmodus setzen
@@ -17,11 +18,14 @@ in1 = 17
 in2 = 27
 in3 = 16
 
-out1 = 22
-out2 = 23
-out3 = 24
-out4 = 25
-out5 = 26
+out1 = 22   #White1
+out2 = 23   #White2
+out3 = 24   #Blue1
+out4 = 25   #Blue2
+out5 = 26   #Button Green
+out6 = 13   #Signal Yellow
+out7 = 12   #Signal Red
+
 
 #GPIOs Definieren
 GPIO.setup(in1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -36,53 +40,58 @@ GPIO.setup(out4, GPIO.OUT)#Blue2
 
 GPIO.setup(out5, GPIO.OUT) #Button LED
 
+GPIO.setup(out6, GPIO.OUT) #Signal Yellow
+GPIO.setup(out7, GPIO.OUT) #Signal Red
+
 ####### Standards #######
 GPIO.output(out1, GPIO.LOW)
 GPIO.output(out2, GPIO.LOW)
 GPIO.output(out3, GPIO.LOW)
 GPIO.output(out4, GPIO.LOW)
+GPIO.output(out5, GPIO.LOW)
+GPIO.output(out6, GPIO.LOW)
+GPIO.output(out7, GPIO.LOW)
 
 ############ PROGRAMM ###################
-
-try:
+class busy(threading.Thread,prg_ok):
+    
+    def __init__(self, thread_number):
+        threading.Thread.__init__(self)
+        self.thread_number = thread_number
+    def run(self,prg_ok):
+	if prg_ok == False:
+            GPIO.output(out6, GPIO.HIGH)
+            time.sleep(0.02)
+            GPIO.output(out6, GPIO.LOW)
+        elif prg_ok == True:
+            GPIO.output(out6, GPIO.LOW)
+    
+ try:
+    jobs=[]
     while True:
         if (GPIO.input(in1)):
             GPIO.output(out5,1)
             print("Button 1 Pressed")
-            time.sleep(0.1)
+            time.sleep(0.5)
+            jobs.append(busy(False))
             GPIO.output(out5,0)
+            
         if (GPIO.input(in2)):
             GPIO.output(out5,1)
             print("Button 2 Pressed")
-            time.sleep(0.1)
+            jobs.pop()
+            time.sleep(0.5)
             GPIO.output(out5,0)
+            
         if (GPIO.input(in3)):
             GPIO.output(out5,1)
             print("Button 3 Pressed")
-            time.sleep(0.1)
+            time.sleep(0.5)
             GPIO.output(out5,0)
-            
     
-#    i = 0
-#    while i<100:
-#        print ('1')
-#        GPIO.output(22, GPIO.HIGH)
-#        time.sleep(0.1)
-#        GPIO.output(22, GPIO.LOW)
-#        print ('2')
-#        GPIO.output(23, GPIO.HIGH)
-#        time.sleep(0.1)
-#        GPIO.output(23, GPIO.LOW)
-#        print ('3')
-#        GPIO.output(24, GPIO.HIGH)
-#        time.sleep(0.1)
-#        GPIO.output(24, GPIO.LOW)
-#        print ('4')
-#        GPIO.output(25, GPIO.HIGH)
-#        time.sleep(0.1)
-#        GPIO.output(25, GPIO.LOW)        
-#        i = i + 1
-#        time.sleep(.5)
+    for job in jobs: # Wait for the background task to finish
+        job.join()       
+    print 'Main program waited until background was done.'
 
 ######### ERROR UND CLEANUP #############
 

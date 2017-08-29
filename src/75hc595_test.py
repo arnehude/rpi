@@ -56,7 +56,7 @@ def hc595_out():
 
 def loop():
 	WhichLeds = LED0	# Change Mode, modes from LED0 to LED3
-	sleeptime = 0.1		# Change speed, lower value, faster speed
+	sleeptime = 0.01		# Change speed, lower value, faster speed
 	while True:
 		for i in range(0, len(WhichLeds)):
 			hc595_in(WhichLeds[i])

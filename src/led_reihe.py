@@ -15,7 +15,7 @@ GPIO.setmode(GPIO.BCM)
 
 in1 = 17
 in2 = 27
-in3 = 25
+in3 = 16
 
 out1 = 22
 out2 = 23

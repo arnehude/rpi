@@ -59,11 +59,11 @@ class busy(threading.Thread):
         threading.Thread.__init__(self)
         self.thread_number = thread_number
     def run(self):
-	if GPIO.input(in2) == 0:
+	if (GPIO.input(in2) == 0):
             GPIO.output(out6, GPIO.HIGH)
             time.sleep(0.02)
             GPIO.output(out6, GPIO.LOW)
-        elif GPIO.input(in2) == 1:
+        elif (GPIO.input(in2) == 1):
             GPIO.output(out6, GPIO.LOW)
     
  try:

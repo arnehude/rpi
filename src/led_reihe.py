@@ -34,7 +34,6 @@ GPIO.setup(out3, GPIO.OUT)
 GPIO.setup(out4, GPIO.OUT)
 
 ####### Standards #######
-
 GPIO.output(out1, GPIO.LOW)
 GPIO.output(out2, GPIO.LOW)
 GPIO.output(out3, GPIO.LOW)
